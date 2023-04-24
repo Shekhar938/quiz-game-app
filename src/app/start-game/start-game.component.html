@@ -62,69 +62,49 @@
         ></polygon>
       </svg>
     </div>
-    <div class="container mx-auto px-4">
-      <div class="items-center flex flex-wrap">
-        <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
-          <img
-            alt="..."
-            class="max-w-full rounded-lg shadow-lg"
-            src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80"
-          />
+    <div class="container mx-auto px-2">
+      <div class="items-left flex flex-wrap">
+        <div class="md:w-3/12 ml-auto mr-auto pl-4">
+          <div
+            class="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg shadow-xl"
+          >
+            <ngx-wheel
+              #wheel
+              [width]="800"
+              [height]="800"
+              [spinDuration]="10"
+              [items]="items"
+              [innerRadius]="30"
+              [spinAmount]="10"
+              [textOrientation]="textOrientation"
+              [textAlignment]="textAlignment"
+              pointerStrokeColor="black"
+              pointerFillColor="gold"
+              [idToLandOn]="idToLandOn"
+              (onSpinComplete)="getRandomQuestion()"
+            ></ngx-wheel>
+          </div>
         </div>
-        <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
-          <div class="md:pr-12">
+        <div
+          class="w-full items-centre md:w-5/12 ml-auto px-2 relative flex flex-col"
+        >
+          <div class="md:pt-8">
             <div
-              class="text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300"
+              class="bg-gray-300 border-gray-400 border-2 p-4 rounded-lg shadow-xl ring-blue-500"
             >
-              <i class="fas fa-rocket text-xl"></i>
+              <h2 class="text-5xl font-semibold mb-4">
+                Please Anwer The Question Below
+              </h2>
+              <p class="text-gray-600 text-3xl font-semibold">
+                {{ randomQuestion }}
+              </p>
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4"
+                (click)="getRandomQuestion()"
+              >
+                Click to Restart
+              </button>
             </div>
-            <h3 class="text-3xl font-semibold">A growing company</h3>
-            <p class="mt-4 text-lg leading-relaxed text-gray-600">
-              The extension comes with three pre-built pages to help you get
-              started faster. You can change the text and images and you're good
-              to go.
-            </p>
-            <ul class="list-none mt-6">
-              <li class="py-2">
-                <div class="flex items-center">
-                  <div>
-                    <span
-                      class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"
-                      ><i class="fas fa-fingerprint"></i
-                    ></span>
-                  </div>
-                  <div>
-                    <h4 class="text-gray-600">Carefully crafted components</h4>
-                  </div>
-                </div>
-              </li>
-              <li class="py-2">
-                <div class="flex items-center">
-                  <div>
-                    <span
-                      class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"
-                      ><i class="fab fa-html5"></i
-                    ></span>
-                  </div>
-                  <div>
-                    <h4 class="text-gray-600">Amazing page examples</h4>
-                  </div>
-                </div>
-              </li>
-              <li class="py-2">
-                <div class="flex items-center">
-                  <div>
-                    <span
-                      class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"
-                      ><i class="far fa-paper-plane"></i
-                    ></span>
-                  </div>
-                  <div>
-                    <h4 class="text-gray-600">Dynamic components</h4>
-                  </div>
-                </div>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
