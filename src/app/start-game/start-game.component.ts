@@ -162,7 +162,6 @@ export class StartGameComponent implements OnInit {
     this.randomQuestion = questions[randomIndex];
   }
   before() {
-    //console.log(this.sound);
     this.sound.play();
   }
   after() {
