@@ -89,8 +89,9 @@ export class StartGameComponent implements OnInit {
   textOrientation: TextOrientation = TextOrientation.HORIZONTAL;
   textAlignment: TextAlignment = TextAlignment.INNER;
   randomQuestion!: string;
-  selectedName!: string;
+  selectedName = 'Player';
   selectedNames: string[] = [];
+  isCollapsibleOpen = false;
 
   constructor() {}
 
@@ -130,6 +131,10 @@ export class StartGameComponent implements OnInit {
     this.selectedName = removedName;
   }
 
+  toggleCollapsible() {
+    this.isCollapsibleOpen = !this.isCollapsibleOpen;
+  }
+
   getRandomQuestion() {
     const questions = [
       'How would you like to work often? - Bed, Chair-table, Couch',
@@ -166,5 +171,6 @@ export class StartGameComponent implements OnInit {
   }
   after() {
     this.sound.unload();
+    this.getRandomQuestion();
   }
 }
