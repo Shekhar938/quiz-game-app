@@ -2,6 +2,7 @@
   <div class="relative flex content-center items-center justify-center">
     <div class="absolute top-2 w-full h-full bg-center bg-cover">
       <span id="blackOverlay" class="w-full h-full absolute bg-black"></span>
+      <span id="blackOverlay" class="w-full h-full absolute bg-black"></span>
     </div>
     <div class="container relative mx-auto">
       <div class="items-center flex flex-wrap">
@@ -98,6 +99,8 @@
           <div class="relative flex flex-col min-w-0 w-full mb-6">
             <ngx-wheel
               #wheel
+              [width]="700"
+              [height]="700"
               [width]="700"
               [height]="700"
               [spinDuration]="2"
