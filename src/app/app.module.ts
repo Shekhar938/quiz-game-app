@@ -9,11 +9,14 @@ import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './content/content.component';
 import { StartGameComponent } from './start-game/start-game.component';
 import { HomeComponent } from './home/home.component';
+import { ManagementComponentComponent } from './wheelGame/management-component/management-component.component';
+import { GameComponentComponent } from './wheelGame/game-component/game-component.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, ContentComponent, StartGameComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, NgxWheelModule, FormsModule],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, ContentComponent, StartGameComponent, HomeComponent, ManagementComponentComponent, GameComponentComponent],
+  imports: [BrowserModule, AppRoutingModule, NgxWheelModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

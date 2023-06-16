@@ -25,6 +25,7 @@ export class StartGameComponent implements OnInit {
     'Eldin Hulsman',
     'Lex Goudriaan',
     'Kenneth Mensink',
+
   ];
   colors = [
     'red',
@@ -83,6 +84,7 @@ export class StartGameComponent implements OnInit {
   selectedNames: string[] = [];
   isCollapsibleOpen = false;
   newName! : string;
+
 
   constructor() {}
 
@@ -185,5 +187,6 @@ export class StartGameComponent implements OnInit {
     this.reset();
     this.assignNames();
     this.idToLandOn = Math.floor(Math.random() * this.names.length);
+
   }
 }
