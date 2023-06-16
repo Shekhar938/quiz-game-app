@@ -25,24 +25,6 @@ export class StartGameComponent implements OnInit {
     'Eldin Hulsman',
     'Lex Goudriaan',
     'Kenneth Mensink',
-    'Jake van der Valk',
-    'Leo Schilperoort',
-    'Daan Bertens',
-    'Frank van Driel',
-    'Arris Tijsseling',
-    'Vishnu Vishweshwar',
-    'Bineet Kumar Singh',
-    'Harish Kumar Verma',
-    'Pratibha Basapure',
-    'Ram Polaggari',
-    'Harsha Menda',
-    'Rajat Bansal',
-    'Angan Das',
-    'Rajarahul Murugesan',
-    'Suresh Thimmappa',
-    'Ernst de Zwart',
-    'Mark van Dijk',
-    'Werner van der Meer',
   ];
   colors = [
     'red',
@@ -75,6 +57,14 @@ export class StartGameComponent implements OnInit {
     'cream',
     'khaki',
     'wine',
+    'lavender',
+    'sky blue',
+    'rose',
+    'beige',
+    'mustard',
+    'cream',
+    'khaki',
+    'wine',
   ];
 
   idToLandOn: any;
@@ -89,12 +79,18 @@ export class StartGameComponent implements OnInit {
   textOrientation: TextOrientation = TextOrientation.HORIZONTAL;
   textAlignment: TextAlignment = TextAlignment.INNER;
   randomQuestion!: string;
-  selectedName!: string;
+  selectedName = 'Player';
   selectedNames: string[] = [];
+  isCollapsibleOpen = false;
+  newName! : string;
 
   constructor() {}
 
   ngOnInit(): void {
+    this.assignNames();
+  }
+
+  assignNames(){
     this.idToLandOn = Math.floor(Math.random() * this.names.length);
     this.items = this.names.map((value, index) => ({
       fillStyle: this.colors[index % this.colors.length],
@@ -111,7 +107,7 @@ export class StartGameComponent implements OnInit {
 
   spin() {
     this.removeName(this.idToLandOn);
-    this.wheel.reset();
+    this.reset();
     this.idToLandOn = Math.floor(Math.random() * this.names.length);
     this.wheel.spin();
     this.randomQuestion = '';
@@ -128,6 +124,10 @@ export class StartGameComponent implements OnInit {
     }));
     this.selectedNames.push(removedName);
     this.selectedName = removedName;
+  }
+
+  toggleCollapsible() {
+    this.isCollapsibleOpen = !this.isCollapsibleOpen;
   }
 
   getRandomQuestion() {
@@ -166,5 +166,24 @@ export class StartGameComponent implements OnInit {
   }
   after() {
     this.sound.unload();
+    this.getRandomQuestion();
+  }
+  editName(id:any){
+    this.newName = this.names[id];
+    this.names.splice(id, 1)[0];
+    this.assignNames();
+  }
+
+  deleteName(id:any){
+    this.names.splice(id++, 1)[0];
+    this.assignNames();
+    this.reset();
+    this.idToLandOn = Math.floor(Math.random() * this.names.length);
+  }
+  addName(name:any){
+    this.names.push(name);
+    this.reset();
+    this.assignNames();
+    this.idToLandOn = Math.floor(Math.random() * this.names.length);
   }
 }
